@@ -8,4 +8,4 @@ polls.each do |poll|
   Poll.find_or_create_by(poll)
 end
 
-puts "seeded polls"
+puts "There are now #{Poll.count} polls."
