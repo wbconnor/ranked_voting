@@ -1,7 +1,9 @@
 <div id="<%= dom_id poll %>">
   <% if action_name != "show" %>
-    <%= link_to "Show this poll", poll, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this poll', edit_poll_path(poll), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to poll.title, poll, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to edit_poll_path(poll), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
     <hr class="mt-6">
   <% end %>
 </div>

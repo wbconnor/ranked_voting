@@ -1,0 +1,9 @@
+<div class="option-fields">
+  <%= form.fields_for :options, Option.new, child_index: Time.now.to_i do |option_fields| %>
+    <%= option_fields.label :name %>
+    <%= option_fields.text_field :name %>
+
+    <%= option_fields.check_box :_destroy %>
+    <%= option_fields.label :_destroy, 'Remove Option' %>
+  <% end %>
+</div>

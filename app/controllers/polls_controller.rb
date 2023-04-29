@@ -13,7 +13,7 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     @poll = Poll.new
-    poll.options.build
+    @poll.options.build
   end
 
   # GET /polls/1/edit
@@ -67,6 +67,6 @@ class PollsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def poll_params
       params.require(:poll).permit(:title, :close_date, :password,
-                                    options_attributes: [:id, :text, :_destroy])
+                                    options_attributes: [:name, :_destroy])
     end
 end
