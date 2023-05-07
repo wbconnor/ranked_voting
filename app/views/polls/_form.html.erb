@@ -12,22 +12,6 @@
   <% end %>
 
   <div class="inline">
-
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-
-    <%= form.label :close_date %>
-    <%= form.date_field :close_date %>
-
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-
-    <div id="options">
-      <%= render partial: 'option_fields', locals: { form: form } %>
-    </div>
-
-    <%= button_to 'Add Option', '#', id: 'add-option' %>
-
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
