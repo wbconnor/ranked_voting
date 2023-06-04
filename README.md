@@ -23,3 +23,5 @@ Notes:
 The Relaitonship of Options & Polls - I thought it would be fun to have a many-to-many relaitonship on Options & Polls so that when someone creates an option it would be reused if someone else wanted that same exact option. For instance if I create the "Purple" option for the poll "What is your favorite color?" and someone else wanted the "Purple" option for the poll "What is the best color for a sports car?" then that one "Purple" option would be associated to both polls.
 
 Anonymous Users - I'm planning to create anonymous users so that when someone visits the web page to make a poll they don't have to create a user account, but they'll be able to implement features on the poll as if they were logged in.
+
+Here you can see [my current development notes](https://octo.app/public/RHho4EoYxn0OsoOZYH3xs) for the project.
