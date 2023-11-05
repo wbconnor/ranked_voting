@@ -1,13 +1,10 @@
-<div id="<%= dom_id poll %>">
-  <% if action_name != "show" %>
-    <%= link_to "#{poll.title}", poll, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit', edit_poll_path(poll), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+<form method="post" style="display: flex; flex-direction: column; align-items: flex-start;">
+  <% @poll.options.each do |option| %>
+    <div style="display: flex;flex-direction: row;margin-bottom: 10px;">
+      <label style="flex: 1" for="option_<%= option.id %>"><%= option.name %></label>
+      <input style="width: 50px;flex: 0;margin-left: 10px;" type="number" name="option_ranks[<%= option.id %>]" id="option_<%= option.id %>" min="1">
+    </div>
   <% end %>
 
-  <ul>
-    <% @poll.options.each do |option| %>
-      <li><%= option.name %></li>
-    <% end %>
-  </ul>
-</div>
+  <input type="submit" value="Vote">
+</form>
