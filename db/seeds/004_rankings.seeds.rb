@@ -6,9 +6,9 @@ user = User.find_or_create_by(name: user_name)
 poll_options = poll.options
 
 poll_options.each_with_index do |option, index|
-  rank = Rank.find_or_create_by(position: index + 1)
+  rank =  index + 1
   poll_option = PollOption.find_or_create_by(poll: poll, option: option)
-  PollOptionRank.find_or_create_by(rank: rank, poll_option: poll_option, user_id: user.id)
+  Ranking.find_or_create_by(rank: rank, poll_option: poll_option, user_id: user.id)
 end
 
-puts "There are now #{PollOptionRank.count} poll_option_ranks"
+puts "There are now #{Ranking.count} poll_option_ranks"

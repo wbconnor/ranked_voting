@@ -9,6 +9,14 @@
   </div>
 
   <div id="polls" class="min-w-full">
-    <%= render @polls %>
+
+
+
+    <ul>
+      <% @polls.each do |poll| %>
+        <li><%= link_to poll.title, poll %></li>
+      <% end %>
+    </ul>
+
   </div>
 </div>
