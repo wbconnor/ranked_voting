@@ -11,4 +11,4 @@ poll_options.each_with_index do |option, index|
   Ranking.find_or_create_by(rank: rank, poll_option: poll_option, user_id: user.id)
 end
 
-puts "There are now #{Ranking.count} poll_option_ranks"
+puts "There are now #{Ranking.count} poll_option_rank rows"

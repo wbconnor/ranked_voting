@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: ranking_poll_options
+# Table name: poll_option_ranking
 #
 #  id             :bigint           not null, primary key
 #  rank           :integer
@@ -11,15 +11,15 @@
 #
 # Indexes
 #
-#  index_ranking_poll_options_on_poll_option_id  (poll_option_id)
-#  index_ranking_poll_options_on_ranking_id      (ranking_id)
+#  index_poll_option_ranking_on_poll_option_id  (poll_option_id)
+#  index_poll_option_ranking_on_ranking_id      (ranking_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (poll_option_id => options_polls.id)
 #  fk_rails_...  (ranking_id => rankings.id)
 #
-class RankingPollOption < ApplicationRecord
+class PollOptionRanking < ApplicationRecord
   belongs_to :ranking
   belongs_to :poll_option
 end
