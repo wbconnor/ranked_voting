@@ -18,6 +18,9 @@
 #  index_polls_on_user_id  (user_id) WHERE (user_id IS NOT NULL)
 #
 class Poll < ApplicationRecord
-    has_and_belongs_to_many :options
+    belongs_to :user
+    has_many :poll_options
+    has_many :options, through: :poll_options
+
     accepts_nested_attributes_for :options
 end

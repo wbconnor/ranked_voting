@@ -13,5 +13,6 @@
 #  index_options_on_user_id  (user_id) WHERE (user_id IS NOT NULL)
 #
 class Option < ApplicationRecord
-    has_and_belongs_to_many :polls
+    has_many :poll_options
+    has_many :polls, through: :poll_options
 end

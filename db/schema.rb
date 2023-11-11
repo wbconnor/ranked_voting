@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_07_031658) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_10_034229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,16 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_031658) do
     t.index ["poll_id"], name: "index_options_polls_on_poll_id"
   end
 
-  create_table "poll_option_ranking", force: :cascade do |t|
-    t.bigint "ranking_id", null: false
-    t.bigint "poll_option_id", null: false
-    t.integer "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["poll_option_id"], name: "index_poll_option_ranking_on_poll_option_id"
-    t.index ["ranking_id"], name: "index_poll_option_ranking_on_ranking_id"
-  end
-
   create_table "polls", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,11 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_031658) do
     t.index ["user_id"], name: "index_polls_on_user_id", where: "(user_id IS NOT NULL)"
   end
 
-  create_table "rankings", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "ranks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "poll_option_id", null: false
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_rankings_on_user_id"
+    t.index ["poll_option_id"], name: "index_ranks_on_poll_option_id"
+    t.index ["user_id"], name: "index_ranks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_07_031658) do
 
   add_foreign_key "options_polls", "options"
   add_foreign_key "options_polls", "polls"
-  add_foreign_key "poll_option_ranking", "options_polls", column: "poll_option_id"
-  add_foreign_key "poll_option_ranking", "rankings"
+  add_foreign_key "ranks", "options_polls", column: "poll_option_id"
+  add_foreign_key "ranks", "users"
 end
